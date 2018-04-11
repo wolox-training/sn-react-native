@@ -1,0 +1,19 @@
+.title-text {
+  font-family: 'Roboto';
+  font-size: 30px;
+  font-weight:bold;
+  margin-left: 800px;
+  margin-top: 75px;
+  position: relative;
+  z-index: 1;
+}
+
+.title-text::before {
+  content: url("./assets/triangle.svg");
+  height: 100px;
+  left:-80px;
+  position: absolute;
+  top: -60px;
+  width: 100px;
+  z-index: -1;
+}
