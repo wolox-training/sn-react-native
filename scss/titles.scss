@@ -1,0 +1,23 @@
+.titulo {
+  display: flex;
+  justify-content: center;
+}
+
+.title-text {
+  font-family: 'Open Sans';
+  font-size: 30px;
+  font-weight:bold;
+  padding-top: 75px;
+  position: relative;
+  z-index: 1;
+}
+
+.title-text::before {
+  content: url("./assets/triangle.svg");
+  height: 100px;
+  left:-75px;
+  position: absolute;
+  top: 15px;
+  width: 100px;
+  z-index: -1;
+}
