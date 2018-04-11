@@ -1,13 +1,9 @@
-.titulo {
-  display: flex;
-  justify-content: center;
-}
-
 .title-text {
-  font-family: 'Open Sans';
+  font-family: 'Roboto';
   font-size: 30px;
   font-weight:bold;
-  padding-top: 75px;
+  margin-left: 800px;
+  margin-top: 75px;
   position: relative;
   z-index: 1;
 }
@@ -15,9 +11,9 @@
 .title-text::before {
   content: url("./assets/triangle.svg");
   height: 100px;
-  left:-75px;
+  left:-80px;
   position: absolute;
-  top: 15px;
+  top: -60px;
   width: 100px;
   z-index: -1;
 }
