@@ -13,11 +13,11 @@
 .tech::before {
   border: 1px solid $wolox-green;
   border-radius: 10px;
-  bottom: 25px;
+  bottom: 15px;
   content: "";
-  height: 300px;
+  height: 290px;
   position: absolute;
-  right:  10px;
+  right:  15px;
   width: 225px;
   z-index: -1;
 }
@@ -25,7 +25,7 @@
 .tech-font {
   font-family: "Roboto";
   font-size: 14px;
-  line-height: 20px;
+  line-height: 16px;
   text-align: center;
 }
 
@@ -40,7 +40,7 @@
   left: 55px;
   position: absolute;
   top: 20px;
-  z-index: -2;
+  z-index: -1;
 }
 
 .tech-release {
