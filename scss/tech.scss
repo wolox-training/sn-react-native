@@ -1,0 +1,45 @@
+.tech {
+  background-color: $wolox-green;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 50px 0 0 250px;
+  padding: 125px 45px 45px 30px;
+  position: relative;
+  width: 225px;
+  z-index: 1;
+}
+
+.tech::before {
+  border: 1px solid $wolox-green;
+  border-radius: 10px;
+  bottom: 15px;
+  content: "";
+  height: 290px;
+  position: absolute;
+  right:  15px;
+  width: 225px;
+  z-index: -1;
+}
+
+.subtitle {
+  font-size: 16px;
+  margin-bottom: 5px;
+  position: relative;
+}
+
+.subtitle-image {
+  height: 90px;
+  left: 55px;
+  position: absolute;
+  top: 20px;
+  z-index: -1;
+}
+
+.tech-release {
+  font-weight: bold;
+}
+
+.tech-text {
+  margin-top: 20px;
+}
