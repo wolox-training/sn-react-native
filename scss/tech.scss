@@ -29,8 +29,7 @@
   right: 15px;
   width: 225px;
   z-index: -1;
-  transition: left 2s,
-              top 2s;
+  transition: left, top 2s;
 }
 
 .tech:hover::before {
