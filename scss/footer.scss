@@ -8,17 +8,17 @@
 }
 
 .footer-title {
-  font-size: 24px;
+  font-size: $fontsize-large;
   margin-bottom: 25px;
 }
 
 .footer-rights {
   align-self: flex-end;
-  font-size: 12px;
+  font-size: $fontsize-small;
   margin-right: 20px;
 }
 
 .footer-font{
+  @extend .font;
   color: $wolox-white;
-  font-family: "Roboto";
 }

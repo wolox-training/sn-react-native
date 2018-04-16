@@ -3,7 +3,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   margin-bottom: 50px;
-  padding: 0 250px;
+  padding: 0 15%;
   width: 100%;
 }
 
@@ -30,12 +30,12 @@
   right: 15px;
   width: 225px;
   z-index: -1;
-  transition: left, top 2s;
+  transition: bottom, right 1s ease;
 }
 
 .tech:hover::before {
-  left: 15px;
-  top: 15px;
+  bottom: -15px;
+  right: -15px;
 }
 
 .subtitle {
