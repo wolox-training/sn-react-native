@@ -17,24 +17,24 @@
   height: 290px;
   width: 225px;
   z-index: 1;
-}
 
-.tech::before {
-  border: 1px solid $wolox-green;
-  border-radius: 10px;
-  bottom: 15px;
-  content: "";
-  height: 290px;
-  position: absolute;
-  right: 15px;
-  width: 225px;
-  z-index: -1;
-  transition: left, top 2s;
-}
+  &::before {
+    border: 1px solid $wolox-green;
+    border-radius: 10px;
+    bottom: 15px;
+    content: "";
+    height: 290px;
+    position: absolute;
+    right: 15px;
+    width: 225px;
+    z-index: -1;
+    transition: left, top 2s;
+  }
 
-.tech:hover::before {
-  left: 15px;
-  top: 15px;
+  &:hover::before {
+      top: 15px;
+      left: 15px;
+  }
 }
 
 .subtitle {
