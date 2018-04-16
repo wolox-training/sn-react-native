@@ -1,8 +1,9 @@
 .techs {
   display: flex;
   flex-wrap: wrap;
-  margin-left: 250px;
-  width: 1200px;
+  margin-bottom: 50px;
+  padding: 0 15%;
+  width: 100%;
 }
 
 .tech {
@@ -28,10 +29,16 @@
   right: 15px;
   width: 225px;
   z-index: -1;
+  transition: bottom, right 1s ease;
+}
+
+.tech:hover::before {
+  bottom: -15px;
+  right: -15px;
 }
 
 .subtitle {
-  font-size: 16px;
+  font-size: $fontsize-medium;
   margin-bottom: 5px;
   position: relative;
 }
@@ -51,4 +58,11 @@
 
 .tech-text {
   margin-top: 15px;
+}
+
+.tech-font {
+  @extend .font;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
 }

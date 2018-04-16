@@ -1,0 +1,24 @@
+.footer {
+  align-items: center;
+  background: $wolox-blue;
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  justify-content: center;
+}
+
+.footer-title {
+  font-size: $fontsize-large;
+  margin-bottom: 25px;
+}
+
+.footer-rights {
+  align-self: flex-end;
+  font-size: $fontsize-small;
+  margin-right: 20px;
+}
+
+.footer-font{
+  @extend .font;
+  color: $wolox-white;
+}
