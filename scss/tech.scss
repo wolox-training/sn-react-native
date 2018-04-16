@@ -59,3 +59,10 @@
 .tech-text {
   margin-top: 15px;
 }
+
+.tech-font {
+  @extend .font;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+}

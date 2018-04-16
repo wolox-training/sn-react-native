@@ -5,15 +5,3 @@
 $fontsize-large: 24px;
 $fontsize-medium: 16px;
 $fontsize-small: 24px;
-
-.tech-font {
-  @extend .font;
-  font-size: 14px;
-  line-height: 16px;
-  text-align: center;
-}
-
-.tools-navbar{
-  @extend .font;
-  font-size: $fontsize-large;
-}
