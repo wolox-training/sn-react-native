@@ -80,3 +80,27 @@
   line-height: 16px;
   text-align: center;
 }
+
+@media only screen and (max-width: 1024px) {
+  .container {
+    padding-top: 75px;
+    align-items: center;
+  }
+
+  .techs {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 75px;
+  }
+
+  .tech {
+    border-top: 1px solid $wolox-green;
+    margin: 0;
+    padding: 15px 22px;
+  }
+
+  .first-tech {
+    border: none;
+  }
+}

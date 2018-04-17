@@ -22,3 +22,10 @@
   @extend .font;
   color: $wolox-white;
 }
+
+@media only screen and (max-width: 1024px) {
+  .footer-rights{
+    align-self: center;
+    margin-top: 20px;
+  }
+}
