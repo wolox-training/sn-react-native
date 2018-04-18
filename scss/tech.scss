@@ -65,13 +65,16 @@
 
 @media only screen and (max-width: 1024px) {
   .container {
-    padding-top: 75px;
+    padding: 125px 0 0 0;
     align-items: center;
+    align-self: center;
+    justify-content: center;
   }
 
   .techs {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     margin-top: 75px;
   }

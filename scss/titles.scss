@@ -1,5 +1,6 @@
 .title-text {
-  font-family: 'Roboto';
+  @extend .font;
+  display: inline;
   font-size: $fontsize-large;
   font-weight: bold;
   position: relative;
@@ -7,11 +8,13 @@
 }
 
 .title-text::before {
-  content: url("./assets/triangle.svg");
+  background: url("./assets/triangle.svg");
+  background-repeat: no-repeat;
+  content: "";
   height: 100px;
-  left:-80px;
+  left:-60px;
   position: absolute;
-  top: -60px;
+  top: -43px;
   width: 100px;
   z-index: -1;
 }
