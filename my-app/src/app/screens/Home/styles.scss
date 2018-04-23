@@ -1,0 +1,97 @@
+$black: #000000;
+$grey: #d8d8d8;
+$light-grey: #f4f4f4;
+$dark-grey: #9b9b9b;
+$light-green: #BED23C;
+
+$large-size: 24px;
+$medium-size: 16px;
+$intermedium-size: 14px;
+$small-size: 12px;
+
+.book{
+  display: flex;
+  flex-direction: column;
+  margin-right: 5%;
+  width:128px;
+}
+
+.book-author {
+  align-self: flex-start;
+  color: #4a4a4a;
+  font-family: Roboto-Regular;
+  font-size: $small-size;
+  letter-spacing: 0px;
+  line-height: 19px;
+}
+
+.books-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 65px;
+}
+
+.book-image {
+  background: $grey;
+  height: 182px;
+}
+
+.book-title {
+  align-self: flex-start;
+  color: $black;
+  font-family:  Roboto-Bold;
+  font-size: $intermedium-size;
+  letter-spacing: 0px;
+  line-height: 19px;
+  text-align: left;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  padding: 5% 30%;
+  width: 100%;
+}
+
+.filters {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.select-filter {
+  align-self: center;
+  align-items: center;
+  background: $light-grey;
+  border: none;
+  color: $dark-grey;
+  display: flex;
+  font-family:"Roboto-Italic";
+  font-size: $intermedium-size;
+  height: 38px;
+  letter-spacing: 0px;
+  line-height: 19px;
+  padding-left: 20px;
+  max-width: 238px;
+  width: 100%;
+}
+
+.select-filter select {
+  background: $dark-grey;
+  height: 11px;
+  width: 15px;
+}
+
+.search-filter {
+  background-color: $light-green;
+  height: 24px;
+  padding: 1%;
+  width: 24px;
+}
+
+.selector {
+  margin-right: 2.5%;
+}
