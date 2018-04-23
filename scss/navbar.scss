@@ -20,3 +20,13 @@
   @extend .font;
   font-size: $fontsize-large;
 }
+
+@media only screen and (max-width: 1024px) {
+  .tools-navbar {
+    display: none;
+  }
+
+  .navbar {
+    padding: 0 0 0 5%;
+  }
+}
