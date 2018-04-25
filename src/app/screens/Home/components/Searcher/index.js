@@ -1,0 +1,12 @@
+import React from 'react';
+import searchImage from "../../../../../assets/ASSETS/search.svg"
+import "./styles.css";
+
+export function Searcher({ onFilterChange}) {
+  return (
+    <div className="search-container">
+      <input type="text" className="select-filter" onChange={onFilterChange} placeholder="Buscar..." />
+      <img className="search-filter" src={searchImage} alt="search-icon"/>
+    </div>
+  )
+}

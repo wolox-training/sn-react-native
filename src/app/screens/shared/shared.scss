@@ -1,0 +1,18 @@
+@import "../../constants/constants";
+
+.select-filter {
+  align-self: center;
+  align-items: center;
+  background: $light-grey;
+  border: none;
+  color: $dim-grey;
+  display: flex;
+  font-style: italic;
+  font-size: $intermedium-size;
+  height: 38px;
+  letter-spacing: 0px;
+  line-height: 19px;
+  padding: 0 20px;
+  max-width: 238px;
+  width: 100%;
+}
