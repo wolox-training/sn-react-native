@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from 'prop-types'
 
 export default function BookContainer({books,validarImagen}){
   return (
@@ -12,3 +13,19 @@ export default function BookContainer({books,validarImagen}){
       </div>
     )
 }
+
+BookContainer.propTypes = {
+  books: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      author: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      genre: PropTypes.string,
+      desc: PropTypes.string,
+      publisher: PropTypes.string,
+      year: PropTypes.string,
+      image_url: PropTypes.string
+    })
+  ).isRequired,
+  validarImagen: PropTypes.func.isRequired
+};
