@@ -3,7 +3,7 @@ import dataBooks from "../../../data/books.json";
 import Home from "./layout.js"
 import "./styles.css";
 
-class HomeContainer extends Component {
+export class HomeContainer extends Component {
   state = { books: [], filterType:"Seleccionar",filter:""}
 
   handleFilterChange = filter => {
@@ -43,5 +43,3 @@ class HomeContainer extends Component {
     )
   }
 }
-
-export default HomeContainer;

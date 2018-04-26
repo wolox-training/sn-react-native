@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import HomeContainer from './app/screens/Home/index.js';
+import AppRoutes from './app/config/routes.js';
 import registerServiceWorker from './registerServiceWorker';
 
 
-ReactDOM.render(<HomeContainer />, document.getElementById('root'));
+ReactDOM.render(<AppRoutes />, document.getElementById('root'));
 registerServiceWorker();
