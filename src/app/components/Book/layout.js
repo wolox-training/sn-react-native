@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import defaultImage from "../../../assets/ASSETS/default_book.svg";
 
-export default function BookContainer({ books }){
+function BookContainer({ books }){
   return (
     <div className="books-container">
       {books.map(book =>
@@ -34,5 +34,6 @@ BookContainer.propTypes = {
       image_url: PropTypes.string
     })
   ).isRequired,
-  validarImagen: PropTypes.func.isRequired
 };
+
+export default BookContainer;
