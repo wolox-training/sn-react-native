@@ -1,12 +1,19 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import defaultImage from "../../../assets/ASSETS/default_book.svg";
 
-export default function BookContainer({books,validarImagen}){
+export default function BookContainer({ books }){
   return (
     <div className="books-container">
       {books.map(book =>
         <div key={book.id} className="book">
-          {validarImagen(book.image_url,book.title)}
+          {book.image_url? <img className="book-image" src={book.image_url} alt={book.title}/>
+            :(
+              <div className="book-image">
+                <img src={defaultImage} className="book-image-default" alt={book.title} />
+              </div>
+            )
+          }
           <h3 className="book-title">{book.title}</h3>
           <h3 className="book-author">{book.author}</h3>
         </div>)}
