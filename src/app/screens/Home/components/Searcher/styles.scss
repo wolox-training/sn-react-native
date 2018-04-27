@@ -1,0 +1,10 @@
+@import "../../../shared/shared";
+
+.search-container-home{
+    display: flex;
+
+    .search-filter {
+      background-color: $light-green;
+      padding: 3%;
+    }
+}
