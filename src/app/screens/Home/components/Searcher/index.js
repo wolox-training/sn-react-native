@@ -1,5 +1,5 @@
 import React from 'react';
-import searchImage from "../../../../../assets/ASSETS/search.svg"
+import searchImage from "../../../../../assets/ASSETS/search.svg";
 import "./styles.css";
 
 export function Searcher({ onFilterChange}) {
@@ -8,5 +8,5 @@ export function Searcher({ onFilterChange}) {
       <input type="text" className="select-filter" onChange={onFilterChange} placeholder="Buscar..." />
       <img className="search-filter" src={searchImage} alt="search-icon"/>
     </div>
-  )
+  );
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import "./styles.css"
+import "./styles.css";
 
 export function Selector({ onFilterTypeChange}) {
   return (
@@ -8,5 +8,5 @@ export function Selector({ onFilterTypeChange}) {
       <option value="Nombre">Nombre</option>
       <option value="Autor">Autor</option>
     </select>
-    )
+  );
 }

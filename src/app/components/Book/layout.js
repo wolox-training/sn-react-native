@@ -1,5 +1,5 @@
-import React from "react"
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from 'prop-types';
 
 export default function BookContainer({books,validarImagen}){
   return (
@@ -11,7 +11,7 @@ export default function BookContainer({books,validarImagen}){
           <h3 className="book-author">{book.author}</h3>
         </div>)}
       </div>
-    )
+    );
 }
 
 BookContainer.propTypes = {

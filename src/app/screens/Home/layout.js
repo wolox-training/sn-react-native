@@ -1,8 +1,8 @@
 import React from 'react';
-import {Book} from "../../components/Book/index.js"
-import {Selector} from "./components/Selector/index.js"
-import {Searcher} from "./components/Searcher/index.js"
-import PropTypes from 'prop-types'
+import {Book} from "../../components/Book/index.js";
+import {Selector} from "./components/Selector/index.js";
+import {Searcher} from "./components/Searcher/index.js";
+import PropTypes from 'prop-types';
 
 export default function Home({ handleFilterTypeChange, handleFilterChange, books }) {
   return (

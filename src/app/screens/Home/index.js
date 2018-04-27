@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import dataBooks from "../../../data/books.json";
-import Home from "./layout.js"
+import Home from "./layout.js";
 import "./styles.css";
 
 class HomeContainer extends Component {
-  state = { books: [], filterType:"Seleccionar",filter:""}
+  state = { books: [], filterType:"Seleccionar",filter:""};
 
   handleFilterChange = filter => {
     this.setState({ filter: filter.target.value }, this.updateBooks);
@@ -15,7 +15,7 @@ class HomeContainer extends Component {
   }
 
   componentWillMount(){
-    this.setState({books: dataBooks})
+    this.setState({books: dataBooks});
   }
 
   filterBook(book){
@@ -24,13 +24,13 @@ class HomeContainer extends Component {
     }
     else {
       let attributeFilter = this.state.filterType === "Nombre" ? book.title : book.author;
-      return attributeFilter.toLowerCase().includes(this.state.filter)
+      return attributeFilter.toLowerCase().includes(this.state.filter);
     }
   }
 
   updateBooks() {
     let filteredBooks = dataBooks.filter(book => this.filterBook(book));
-    this.setState({books:filteredBooks})
+    this.setState({books:filteredBooks});
   }
 
   render() {
@@ -40,7 +40,7 @@ class HomeContainer extends Component {
         handleFilterChange={this.handleFilterChange}
         books={this.state.books}
       />
-    )
+    );
   }
 }
 
