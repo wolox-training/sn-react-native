@@ -5,8 +5,11 @@ import dataBooks from '../../../data/books.json';
 import Home from './layout';
 import './styles.css';
 
+const select = 'Seleccionar';
+const name = 'Nombre';
+
 class HomeContainer extends Component {
-  state = { books: [], filterType: 'Seleccionar', filter: '' };
+  state = { books: [], filterType: select, filter: '' };
 
   componentWillMount() {
     this.setState({ books: dataBooks });
@@ -21,11 +24,7 @@ class HomeContainer extends Component {
   };
 
   filterBook(book) {
-    if (this.state.filterType === 'Seleccionar') {
-      return true;
-    }
-
-    const attributeFilter = this.state.filterType === 'Nombre' ? book.title : book.author;
+    const attributeFilter = this.state.filterType === name ? book.title : book.author;
     return attributeFilter.toLowerCase().includes(this.state.filter);
   }
 
