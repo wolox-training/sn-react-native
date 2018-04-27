@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Book from '../../components/Book/index';
+import Book from '../../components/Book';
 
-import Selector from './components/Selector/index';
-import Searcher from './components/Searcher/index';
+import Selector from './components/Selector';
+import Searcher from './components/Searcher';
 
 function Home({ handleFilterTypeChange, handleFilterChange, books }) {
   return (

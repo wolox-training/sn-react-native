@@ -8,6 +8,10 @@ import './styles.css';
 class HomeContainer extends Component {
   state = { books: [], filterType: 'Seleccionar', filter: '' };
 
+  componentWillMount() {
+    this.setState({ books: dataBooks });
+  }
+
   handleFilterChange = filter => {
     this.setState({ filter: filter.target.value }, this.updateBooks);
   };
