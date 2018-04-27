@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Switch, Route } from 'react-router-dom';
 import {BookDetail} from "../screens/BookDetail/index.js"
-import {HomeContainer} from "../screens/Home/index.js"
+import HomeContainer from "../screens/Home/index.js"
 
 export const ROUTES = {
   HOME: () => '/dashboard',

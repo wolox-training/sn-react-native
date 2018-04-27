@@ -8,17 +8,12 @@ import './styles.css';
 const select = 'Seleccionar';
 const name = 'Nombre';
 
-<<<<<<< HEAD
-export class HomeContainer extends Component {
-  state = { books: [], filterType:"Seleccionar",filter:""}
-=======
 class HomeContainer extends Component {
   state = { books: [], filterType: select, filter: '' };
 
   componentWillMount() {
     this.setState({ books: dataBooks });
   }
->>>>>>> e070f83a41dc88b938b9d1cd206cef1814591fd0
 
   handleFilterChange = filter => {
     this.setState({ filter: filter.target.value }, this.updateBooks);
@@ -48,3 +43,5 @@ class HomeContainer extends Component {
     );
   }
 }
+
+export default HomeContainer;
