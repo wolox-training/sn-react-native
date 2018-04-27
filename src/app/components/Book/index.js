@@ -1,21 +1,26 @@
-import React, { Component } from 'react';
-import defaultImage from "../../../assets/ASSETS/default_book.svg"
-import BookContainer from "./layout.js"
-import "./styles.css"
+import React from 'react';
+import PropTypes from 'prop-types';
 
-export class Book extends Component {
-  validarImagen(url,title){
-    if(!url) {
-      return (
-        <div className="book-image">
-          <img src={defaultImage} className="book-image-default" alt={title} />
-        </div>
-      )
-    }
-    return <img className="book-image" src={url} alt={title}/>
-  }
+import BookContainer from './layout';
+import './styles.css';
 
-  render(){
-    return <BookContainer books= {this.props.books} validarImagen={this.validarImagen} />
-  }
+function Book({ books }) {
+  return <BookContainer books={books} />;
 }
+
+Book.propTypes = {
+  books: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      author: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      genre: PropTypes.string,
+      desc: PropTypes.string,
+      publisher: PropTypes.string,
+      year: PropTypes.string,
+      image_url: PropTypes.string
+    })
+  ).isRequired
+};
+
+export default Book;

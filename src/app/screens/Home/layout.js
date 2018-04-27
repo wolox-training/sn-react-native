@@ -1,17 +1,19 @@
 import React from 'react';
-import {Book} from "../../components/Book/index.js"
-import {Selector} from "./components/Selector/index.js"
-import {Searcher} from "./components/Searcher/index.js"
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
-export default function Home({ handleFilterTypeChange, handleFilterChange, books }) {
+import Book from '../../components/Book';
+
+import Selector from './components/Selector';
+import Searcher from './components/Searcher';
+
+function Home({ handleFilterTypeChange, handleFilterChange, books }) {
   return (
-    <div className="home-container" >
+    <div className="home-container">
       <div className="filters">
-        <Selector onFilterTypeChange={handleFilterTypeChange}  />
+        <Selector onFilterTypeChange={handleFilterTypeChange} />
         <Searcher onFilterChange={handleFilterChange} />
       </div>
-      <Book books={books}/>
+      <Book books={books} />
     </div>
   );
 }
@@ -32,3 +34,5 @@ Home.propTypes = {
   handleFilterTypeChange: PropTypes.func.isRequired,
   handleFilterChange: PropTypes.func.isRequired
 };
+
+export default Home;

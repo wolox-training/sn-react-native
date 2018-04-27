@@ -1,12 +1,19 @@
 import React from 'react';
-import "./styles.css"
+import PropTypes from 'prop-types';
+import './styles.css';
 
-export function Selector({ onFilterTypeChange}) {
+function Selector({ onFilterTypeChange }) {
   return (
-    <select onChange={onFilterTypeChange} className="select-filter selector" defaultValue="Seleccionar">
-      <option disabled hidden value="Seleccionar">Seleccionar filtro</option>
+    <select onChange={onFilterTypeChange} className="filters-home selector-home" defaultValue="Seleccionar">
+      <option disabled hidden value="Seleccionar">
+        Seleccionar filtro
+      </option>
       <option value="Nombre">Nombre</option>
       <option value="Autor">Autor</option>
     </select>
-    )
+  );
 }
+
+Selector.propTypes = { onFilterTypeChange: PropTypes.func.isRequired };
+
+export default Selector;
