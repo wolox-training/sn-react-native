@@ -29,7 +29,7 @@ class HomeContainer extends Component {
   }
 
   updateBooks() {
-    const filteredBooks = dataBooks.filter(book => this.filterBook(book));
+    const filteredBooks = this.state.filter ? dataBooks.filter(book => this.filterBook(book)) : dataBooks;
     this.setState({ books: filteredBooks });
   }
 
