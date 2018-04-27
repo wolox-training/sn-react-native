@@ -6,8 +6,13 @@ import './styles.css';
 
 function Searcher({ onFilterChange }) {
   return (
-    <div className="search-container">
-      <input type="text" className="select-filter" onChange={onFilterChange} placeholder="Buscar..." />
+    <div className="search-container-home">
+      <input
+        type="text"
+        className="select-filter filters-home"
+        onChange={onFilterChange}
+        placeholder="Buscar..."
+      />
       <img className="search-filter" src={searchImage} alt="search-icon" />
     </div>
   );
