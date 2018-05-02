@@ -1,0 +1,43 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+
+import BookAttr from './components/BookAttr/';
+import Suggestions from './components/Suggestions/';
+import NewComment from './components/NewComment/';
+import Comments from './components/Comments/';
+
+function BookDet({ book }) {
+  return (
+    <div>
+      {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+      <Link to="/dashboard">
+        <h2 className="return">Volver</h2>
+      </Link>
+      <div className="detail-container">
+        <BookAttr book={book} />
+        <Suggestions book={book} />
+        <div>
+          <h1 className="comments-title">Comentarios</h1>
+          <NewComment book={book} />
+          <Comments book={book} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default BookDet;
+
+BookDet.propTypes = {
+  book: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    author: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    genre: PropTypes.string,
+    desc: PropTypes.string,
+    publisher: PropTypes.string,
+    year: PropTypes.string,
+    image_url: PropTypes.string
+  }).isRequired
+};

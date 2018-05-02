@@ -9,7 +9,8 @@ function BookContainer({ books }) {
     <div className="books-container-home">
       {books.map(book => (
         <div key={book.id} className="book">
-          <Link anchor-is-valid to={`/books/${book.id}`}>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+          <Link to={`/books/${book.id}`}>
             {book.image_url ? (
               <img className="book-image" src={book.image_url} alt={book.title} />
             ) : (

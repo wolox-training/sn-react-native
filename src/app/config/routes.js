@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Switch, Route } from 'react-router-dom';
+import {BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import {BookDetail} from "../screens/BookDetail/index.js"
 import HomeContainer from "../screens/Home/index.js"
 
@@ -12,6 +12,7 @@ function AppRoutes() {
   return (
     <BrowserRouter>
       <Switch>
+        <Redirect exact from='/' to={ROUTES.HOME()}/>
         <Route exact path={ROUTES.HOME()} component={HomeContainer} />
         <Route path="/books/:id" component={BookDetail} />
       </Switch>

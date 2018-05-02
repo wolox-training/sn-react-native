@@ -1,33 +1,37 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import dataBooks from '../../../data/books.json';
 
-import BookAttr from './components/BookAttr/';
-import Suggestions from './components/Suggestions/';
-import NewComment from './components/NewComment/';
-import Comments from './components/Comments/';
+import BookDet from './layout';
+
 import './styles.css';
 
 export class BookDetail extends React.Component {
   state = { book: '' };
 
   componentWillMount() {
-    this.setState({ book: this.findBook() });
+    this.setState({ book: this.findBook(this.props.match.params.id) });
   }
 
-  findBook() {
-    const numId = parseInt(this.props.match.params.id,10);
-    return dataBooks.find(book => book.id === numId);
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.match.params.id !== this.props.match.params.id) {
+      this.setState({ book: this.findBook(nextProps.match.params.id) });
+    }
   }
+
+  findBook = id => {
+    const numId = parseInt(id, 10);
+    return dataBooks.find(book => book.id === numId);
+  };
 
   render() {
-    return (
-      <div className="detail-container">
-        <BookAttr book={this.state.book} />
-        <Suggestions book={this.state.book} />
-        <NewComment book={this.state.book} />
-        <Comments book={this.state.book} />
-      </div>
-    );
+    return <BookDet book={this.state.book} />;
   }
 }
+
+BookDetail.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({ id: PropTypes.string.isRequired })
+  }).isRequired
+};
