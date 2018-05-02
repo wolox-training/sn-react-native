@@ -1,30 +1,32 @@
 import React from 'react';
-import {BookAttr} from "./components/BookAttr/index.js"
-import {Suggestions} from "./components/Suggestions/index.js"
-import {NewComment} from "./components/NewComment/index.js"
-import {Comments} from "./components/Comments/index.js"
-import dataBooks from "../../../data/books.json";
+
+import dataBooks from '../../../data/books.json';
+
+import BookAttr from './components/BookAttr/';
+import Suggestions from './components/Suggestions/';
+import NewComment from './components/NewComment/';
+import Comments from './components/Comments/';
 
 export class BookDetail extends React.Component {
-  state = {book: ""}
+  state = { book: '' };
 
-  findBook(id){
-    let numId = parseInt(id)
-    return dataBooks.find(book => (book.id === numId))
+  componentWillMount() {
+    this.setState({ book: this.findBook() });
   }
 
-  componentWillMount(){
-    this.setState({book: this.findBook(this.props.match.params.id)})
+  findBook() {
+    const numId = parseInt(this.props.match.params.id);
+    return dataBooks.find(book => book.id === numId);
   }
 
-  render(){
+  render() {
     return (
-      <div>
-        <BookAttr book={this.state.book}/>
-        <Suggestions book={this.state.book}/>
-        <NewComment book={this.state.book}/>
-        <Comments book={this.state.book}/>
+      <div className="detail-container">
+        <BookAttr book={this.state.book} />
+        <Suggestions book={this.state.book} />
+        <NewComment book={this.state.book} />
+        <Comments book={this.state.book} />
       </div>
-    )
+    );
   }
 }

@@ -1,7 +1,7 @@
-import React from "react"
+import React from 'react';
 
-export class Suggestions extends React.Component{
-  render(){
-    return <h1>Suggestions</h1>
-  }
+function Suggestions() {
+  return <h1>Suggestions</h1>;
 }
+
+export default Suggestions;

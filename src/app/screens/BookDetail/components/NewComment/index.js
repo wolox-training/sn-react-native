@@ -1,7 +1,7 @@
-import React from "react"
+import React from 'react';
 
-export class NewComment extends React.Component{
-  render(){
-    return <h1> NewComment</h1>
-  }
+function NewComment() {
+  return <h1> NewComment</h1>;
 }
+
+export default NewComment;

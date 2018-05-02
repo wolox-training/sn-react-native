@@ -1,19 +1,17 @@
-import React from "react"
+import React from 'react';
 
-export class BookAttr extends React.Component{
-
-
-  render(){
-    return(
-      <div>
-        <img className="detail-image" src={this.props.book.image_url}/>
-        <h1>{this.props.book.title}</h1>
-        <h2>{this.props.book.author}</h2>
-        <h2>{this.props.book.year}</h2>
-        <h2>{this.props.book.genre}</h2>
-        <h3>{this.props.book.publisher}</h3>
-        <button>Alquilar</button>
-      </div>
-    )
-  }
+function BookAttr({ book }) {
+  return (
+    <div className="props-container-detail">
+      <img className="detail-image" src={book.image_url} alt={book.title} />
+      <h1 className="detail-title">{book.title}</h1>
+      <h2 className="detail-author">{book.author}</h2>
+      <h2 className="detail-year">{book.year}</h2>
+      <h2 className="detail-genre">{book.genre}</h2>
+      <h3 className="detail-publisher">{book.publisher}</h3>
+      <button className="detail-rent">Alquilar</button>
+    </div>
+  );
 }
+
+export default BookAttr;
