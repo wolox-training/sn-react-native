@@ -9,17 +9,17 @@ function BookContainer({ books }) {
     <div className="books-container-home">
       {books.map(book => (
         <div key={book.id} className="book">
-          <Link to="/books/${book.id}">
+          <Link anchor-is-valid to={`/books/${book.id}`}>
             {book.image_url ? (
-            <img className="book-image" src={book.image_url} alt={book.title} />
+              <img className="book-image" src={book.image_url} alt={book.title} />
             ) : (
-            <div className="book-image">
-              <img src={defaultImage} className="book-image-default" alt={book.title} />
-            </div>
-          )}
-          <h3 className="book-home book-title">{book.title}</h3>
-          <h3 className="book-home book-author">{book.author}</h3>
-        </Link>
+              <div className="book-image">
+                <img src={defaultImage} className="book-image-default" alt={book.title} />
+              </div>
+            )}
+            <h3 className="book-home book-title">{book.title}</h3>
+            <h3 className="book-home book-author">{book.author}</h3>
+          </Link>
         </div>
       ))}
     </div>

@@ -6,6 +6,7 @@ import BookAttr from './components/BookAttr/';
 import Suggestions from './components/Suggestions/';
 import NewComment from './components/NewComment/';
 import Comments from './components/Comments/';
+import './styles.css';
 
 export class BookDetail extends React.Component {
   state = { book: '' };
@@ -15,7 +16,7 @@ export class BookDetail extends React.Component {
   }
 
   findBook() {
-    const numId = parseInt(this.props.match.params.id);
+    const numId = parseInt(this.props.match.params.id,10);
     return dataBooks.find(book => book.id === numId);
   }
 
