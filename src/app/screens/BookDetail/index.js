@@ -22,7 +22,11 @@ export class BookDetail extends React.Component {
 
   findBook = id => {
     const numId = parseInt(id, 10);
-    return dataBooks.find(book => book.id === numId);
+    const validationBook = dataBooks.find(book => book.id === numId);
+    if (!validationBook) {
+      window.location.href = '/dashboard';
+    }
+    return validationBook;
   };
 
   render() {
