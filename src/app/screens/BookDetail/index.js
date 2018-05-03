@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import dataBooks from '../../../data/books.json';
 
-import BookDet from './layout';
+import BookDetailLayout from './layout';
 
 import './styles.css';
 
@@ -30,7 +30,7 @@ export class BookDetail extends React.Component {
   };
 
   render() {
-    return <BookDet book={this.state.book} />;
+    return <BookDetailLayout book={this.state.book} />;
   }
 }
 

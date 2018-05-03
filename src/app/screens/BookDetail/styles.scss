@@ -3,7 +3,7 @@
 .detail-container {
   display: flex;
   flex-direction: column;
-  padding: 5% 24%;
+  padding: 40px 320px;
   width: 100%;
 }
 
@@ -20,7 +20,7 @@
   font-weight: bold;
   font-size: 20px;
   line-height: 19px;
-  margin-top: 5%;
+  margin-top: 40px;
   text-align: center;
 }
 
@@ -30,8 +30,8 @@
 
 
   .new-comment-add {
-    background:#a5cd39;
-    color:#ffffff;
+    background: $pretty-green;
+    color: $white;
     font-weight:bold;
     font-size:16px;
     height:38px;

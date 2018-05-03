@@ -8,7 +8,7 @@ import Suggestions from './components/Suggestions/';
 import NewComment from './components/NewComment/';
 import Comments from './components/Comments/';
 
-function BookDet({ book }) {
+function BookDetailLayout({ book }) {
   return (
     <div>
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
@@ -28,9 +28,9 @@ function BookDet({ book }) {
   );
 }
 
-export default BookDet;
+export default BookDetailLayout;
 
-BookDet.propTypes = {
+BookDetailLayout.propTypes = {
   book: PropTypes.shape({
     id: PropTypes.number.isRequired,
     author: PropTypes.string.isRequired,
