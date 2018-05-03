@@ -46,6 +46,11 @@ module.exports = {
     "import/namespace": 2,
     "import/no-absolute-path": "error",
     "import/no-extraneous-dependencies": "off",
-    "import/export": 2
-  }
+    "import/export": 2,
+    "jsx-a11y/anchor-is-valid": [ "error", {
+      "components": [ "Link" ],
+      "specialLink": [ "to" ]
+    }]
+  },
+
 };
