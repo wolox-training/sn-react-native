@@ -13,14 +13,22 @@ class LogIn extends React.Component {
 
     const user = document.getElementById('user').value;
     const password = document.getElementById('password').value;
-    if (password.length < 8 || password.length > 52) {
+    let validationFlag = true;
+    if (!this.validatePassword(password)) {
       document.getElementById('password-validation').style.display = 'block';
+      validationFlag = false;
     }
     if (!this.validateEmail(user)) {
       document.getElementById('user-validation').style.display = 'block';
+      validationFlag = false;
+    }
+
+    if (validationFlag) {
+      window.location.href = '/dashboard';
     }
   };
 
+  validatePassword = password => password.length > 8 && password.length < 52;
   validateEmail = email => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
 
   render() {
