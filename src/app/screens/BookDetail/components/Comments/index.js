@@ -2,7 +2,7 @@ import React from 'react';
 
 import userImage from '../../../../../assets/ASSETS/frank.jpg';
 import { description, date, user } from '../../strings';
-import '../../styles.css';
+import './styles.css';
 
 function Comments() {
   return (

@@ -10,8 +10,7 @@ import Comments from './components/Comments/';
 
 function BookDetailLayout({ book }) {
   return (
-    <div>
-      {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+    <div className="book-detail-container">
       <Link to="/dashboard">
         <h2 className="return">{returnWord}</h2>
       </Link>

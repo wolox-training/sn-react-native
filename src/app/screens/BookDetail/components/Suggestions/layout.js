@@ -13,7 +13,6 @@ function SuggestionsLayout({ books }) {
       <div className="suggestions-books">
         {books.map(book => (
           <div key={book.id}>
-            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <Link to={`/books/${book.id}`}>
               <BookImage
                 book={book}
