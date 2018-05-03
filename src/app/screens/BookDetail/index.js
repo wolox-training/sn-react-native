@@ -7,7 +7,7 @@ import BookDetailLayout from './layout';
 
 import './styles.css';
 
-export class BookDetail extends React.Component {
+class BookDetail extends React.Component {
   state = { book: '' };
 
   componentWillMount() {
@@ -33,6 +33,8 @@ export class BookDetail extends React.Component {
     return <BookDetailLayout book={this.state.book} />;
   }
 }
+
+export default BookDetail;
 
 BookDetail.propTypes = {
   match: PropTypes.shape({
