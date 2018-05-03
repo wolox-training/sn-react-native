@@ -8,12 +8,12 @@
     display: flex;
     flex-wrap: nowrap;
     align-self: center;
+    justify-content: space-around;
   }
 
   .suggestions-image {
     background: $grey;
     height: 124px;
-    margin: 0 30px;
     position: relative;
     width: 87px;
   }

@@ -6,7 +6,7 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   margin-top: 65px;
-    
+
   .book {
     display: flex;
     flex-direction: column;
@@ -27,6 +27,7 @@
     background: $grey;
     height: 182px;
     position: relative;
+    width: 100%;
   }
 
   .book-image-default {

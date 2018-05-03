@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import defaultImage from '../../../../../assets/ASSETS/default_book.svg';
+import BookImage from '../../../../components/BookImage';
 import './styles.css';
 
 function SuggestionsLayout({ books }) {
@@ -14,13 +14,11 @@ function SuggestionsLayout({ books }) {
           <div key={book.id}>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <Link to={`/books/${book.id}`}>
-              {book.image_url ? (
-                <img className="suggestions-image" src={book.image_url} alt={book.title} />
-              ) : (
-                <div className="suggestions-image">
-                  <img src={defaultImage} className="suggestions-image-default" alt={book.title} />
-                </div>
-              )}
+              <BookImage
+                book={book}
+                imageClass="suggestions-image"
+                imageClassDefault="suggestions-image-default"
+              />
             </Link>
           </div>
         ))}

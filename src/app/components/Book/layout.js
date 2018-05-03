@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import defaultImage from '../../../assets/ASSETS/default_book.svg';
+import BookImage from '../../components/BookImage';
 
 function BookContainer({ books }) {
   return (
@@ -11,13 +11,7 @@ function BookContainer({ books }) {
         <div key={book.id} className="book">
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <Link to={`/books/${book.id}`}>
-            {book.image_url ? (
-              <img className="book-image" src={book.image_url} alt={book.title} />
-            ) : (
-              <div className="book-image">
-                <img src={defaultImage} className="book-image-default" alt={book.title} />
-              </div>
-            )}
+            <BookImage book={book} imageClass="book-image" imageClassDefault="book-image-default" />
             <h3 className="book-home book-title">{book.title}</h3>
             <h3 className="book-home book-author">{book.author}</h3>
           </Link>

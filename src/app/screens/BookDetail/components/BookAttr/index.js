@@ -1,19 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import defaultImage from '../../../../../assets/ASSETS/default_book.svg';
+import BookImage from '../../../../components/BookImage';
 import './styles.css';
 
 function BookAttr({ book }) {
   return (
     <div className="props-container-detail">
-      {book.image_url ? (
-        <img className="detail-image" src={book.image_url} alt={book.title} />
-      ) : (
-        <div className="detail-image">
-          <img src={defaultImage} className="detail-image-default" alt={book.title} />
-        </div>
-      )}
+      <BookImage book={book} imageClassDefault="detail-image-default" imageClass="detail-image" />
       <div className="props-texts-container">
         <h1 className="detail-title">{book.title}</h1>
         <h2 className="detail-author detail-sub-headears">{book.author}</h2>
