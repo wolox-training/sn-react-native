@@ -2,13 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import { suggestions } from '../../strings';
 import BookImage from '../../../../components/BookImage';
 import './styles.css';
 
 function SuggestionsLayout({ books }) {
   return (
     <div className="suggestions-container">
-      <h1 className="suggestions-title">Sugerencias</h1>
+      <h1 className="suggestions-title">{suggestions}</h1>
       <div className="suggestions-books">
         {books.map(book => (
           <div key={book.id}>

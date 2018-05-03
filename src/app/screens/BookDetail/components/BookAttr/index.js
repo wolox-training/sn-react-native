@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import BookImage from '../../../../components/BookImage';
+import { description, rent } from '../../strings';
 import './styles.css';
 
 function BookAttr({ book }) {
@@ -13,12 +14,8 @@ function BookAttr({ book }) {
         <h2 className="detail-author detail-sub-headears">{book.author}</h2>
         <h2 className="detail-year detail-sub-headears">{book.year}</h2>
         <h2 className="detail-genre detail-sub-headears">{book.genre}</h2>
-        <h3 className="detail-description">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-          et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </h3>
-        <button className="detail-rent">Alquilar</button>
+        <h3 className="detail-description">{description}</h3>
+        <button className="detail-rent">{rent}</button>
       </div>
     </div>
   );

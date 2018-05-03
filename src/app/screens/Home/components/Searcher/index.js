@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { search } from '../../strings';
 import searchImage from '../../../../../assets/ASSETS/search.svg';
 import './styles.css';
 
@@ -11,7 +12,7 @@ function Searcher({ onFilterChange }) {
         type="text"
         className="select-filter filters-home"
         onChange={onFilterChange}
-        placeholder="Buscar..."
+        placeholder={search}
       />
       <img className="search-filter" src={searchImage} alt="search-icon" />
     </div>

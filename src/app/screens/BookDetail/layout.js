@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
+import { returnWord, comments } from './strings';
 import BookAttr from './components/BookAttr/';
 import Suggestions from './components/Suggestions/';
 import NewComment from './components/NewComment/';
@@ -12,13 +13,13 @@ function BookDet({ book }) {
     <div>
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
       <Link to="/dashboard">
-        <h2 className="return">Volver</h2>
+        <h2 className="return">{returnWord}</h2>
       </Link>
       <div className="detail-container">
         <BookAttr book={book} />
         <Suggestions book={book} />
         <div>
-          <h1 className="comments-title">Comentarios</h1>
+          <h1 className="comments-title">{comments}</h1>
           <NewComment book={book} />
           <Comments book={book} />
         </div>
