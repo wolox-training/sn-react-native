@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';
 
 function PrivateRoute({ Component, path }) {
-  console.log(Component);
   return (
     <Route
       exact

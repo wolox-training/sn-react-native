@@ -3,7 +3,6 @@ import { Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 function PublicRoute({ Component, path }) {
-  console.log(Component);
   return (
     <Route
       exact
