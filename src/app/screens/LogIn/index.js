@@ -1,12 +1,12 @@
 import React from 'react';
 
+import LogInLayout from './layout';
 import './styles.css';
 
 class LogIn extends React.Component {
   validateLogIn = () => {
     document.getElementById('password-validation').style.display = 'none';
     document.getElementById('user-validation').style.display = 'none';
-
     const user = document.getElementById('user').value;
     const password = document.getElementById('password').value;
     let validationFlag = true;
@@ -26,10 +26,10 @@ class LogIn extends React.Component {
   };
 
   validatePassword = password => password.length > 8 && password.length < 52;
-  validateEmail = email => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+  validateEmail = email => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email);
 
   render() {
-    return <LogInLayout />;
+    return <LogInLayout validateLogIn={this.validateLogIn} />;
   }
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import {BrowserRouter, Switch, Redirect, Route } from 'react-router-dom';
 import PrivateRoute from '../components/PrivateRoute';
 import PublicRoute from '../components/PublicRoute';
 import BookDetail from '../screens/BookDetail';
@@ -17,9 +17,9 @@ function AppRoutes() {
     <BrowserRouter>
       <Switch>
         <Redirect exact from='/' to={ROUTES.HOME()}/>
-        <PrivateRoute path={ROUTES.HOME()} component={HomeContainer} />
-        <PrivateRoute path={ROUTES.BOOK_DETAIL()} component={BookDetail} />
-        <PublicRoute ṕath={ROUTES.LOG_IN()} component={LogIn} />
+        <Route path={ROUTES.HOME()} component={HomeContainer} />
+        <Route path={ROUTES.BOOK_DETAIL()} component={BookDetail} />
+        <Route path={ROUTES.LOG_IN()} component={LogIn} />
       </Switch>
     </BrowserRouter>
   );
