@@ -18,7 +18,7 @@ function AppRoutes() {
       <Switch>
         <Redirect exact from='/' to={ROUTES.HOME()}/>
         <PrivateRoute path={ROUTES.HOME()} component={HomeContainer} />
-        <Route path={ROUTES.BOOK_DETAIL()} component={BookDetail} />
+        <PrivateRoute path={ROUTES.BOOK_DETAIL()} component={BookDetail} />
         <PublicRoute path={ROUTES.LOG_IN()} component={LogIn} />
       </Switch>
     </BrowserRouter>
