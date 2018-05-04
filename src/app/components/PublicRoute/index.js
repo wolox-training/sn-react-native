@@ -2,13 +2,14 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-function PublicRoute({ Component, path }) {
+import { ROUTES } from '../../config/routes';
+
+function PublicRoute({ component: Component, path }) {
   return (
     <Route
-      exact
       path={path}
       render={props =>
-        !sessionStorage.getItem('user') ? <Component {...props} /> : <Redirect to="/dashboard" />
+        !sessionStorage.getItem('user') ? <Component {...props} /> : <Redirect to={ROUTES.HOME()} />
       }
     />
   );
@@ -17,6 +18,6 @@ function PublicRoute({ Component, path }) {
 export default PublicRoute;
 
 PublicRoute.propTypes = {
-  Component: PropTypes.func.isRequired,
+  component: PropTypes.func.isRequired,
   path: PropTypes.string.isRequired
 };

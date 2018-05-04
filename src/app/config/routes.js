@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Switch, Redirect } from 'react-router-dom';
+import {BrowserRouter, Switch, Redirect, Route } from 'react-router-dom';
 import PrivateRoute from '../components/PrivateRoute';
 import PublicRoute from '../components/PublicRoute';
 import BookDetail from '../screens/BookDetail';
@@ -8,8 +8,8 @@ import LogIn from '../screens/LogIn';
 
 export const ROUTES = {
   HOME: () => '/dashboard',
-  BOOK_DETAIL: id => `/books/${id}`,
-  LOG_IN: () => '/logIn',
+  BOOK_DETAIL: () => '/books/:id',
+  LOG_IN: () => '/login',
 };
 
 function AppRoutes() {
@@ -17,9 +17,9 @@ function AppRoutes() {
     <BrowserRouter>
       <Switch>
         <Redirect exact from='/' to={ROUTES.HOME()}/>
-        <PrivateRoute path={ROUTES.HOME()} Component={HomeContainer} />
-        <PrivateRoute path={ROUTES.BOOK_DETAIL()} Component={BookDetail} />
-        <PublicRoute path={ROUTES.LOG_IN()} Component={LogIn} />
+        <PrivateRoute path={ROUTES.HOME()} component={HomeContainer} />
+        <Route path={ROUTES.BOOK_DETAIL()} component={BookDetail} />
+        <PublicRoute path={ROUTES.LOG_IN()} component={LogIn} />
       </Switch>
     </BrowserRouter>
   );
