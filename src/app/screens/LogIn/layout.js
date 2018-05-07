@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import wbooks from '../../../assets/ASSETS/wbooks_logo.svg';
 
-import { logIn, userNotValid, passwordNotvalid } from './strings';
+import { logIn, userNotValid, passwordNotvalid, apiNotValid } from './strings';
 
 function LogInLayout({ validateLogIn }) {
   return (
@@ -24,6 +24,9 @@ function LogInLayout({ validateLogIn }) {
       <button onClick={validateLogIn} className="log-in-button">
         {logIn}
       </button>
+      <h2 id="api-validation" className="log-in-alerts">
+        {apiNotValid}
+      </h2>
     </div>
   );
 }
