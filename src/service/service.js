@@ -30,7 +30,7 @@ export async function getBooks() {
 }
 
 export async function getBook(id) {
-  const books = await axios.get(`${urlApi}/book/${id}`, {
+  const books = await axios.get(`${urlApi}/books/${id}`, {
     headers: {
       Authorization: sessionStorage.getItem('authorizationToken')
     }
