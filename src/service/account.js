@@ -12,6 +12,10 @@ async function validateUser(user, password) {
       console.log(res);
       window.location.href = ROUTES.HOME();
       sessionStorage.setItem('user', user);
+    })
+    .catch(e => {
+      document.getElementById('api-validation').style.display = 'block';
+      console.log(e);
     });
 }
 

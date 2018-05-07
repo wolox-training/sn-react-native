@@ -9,6 +9,7 @@ class LogIn extends React.Component {
   validateLogIn = () => {
     this.showErrorMessage('password-validation', 'none');
     this.showErrorMessage('user-validation', 'none');
+    this.showErrorMessage('api-validation', 'none');
     const user = document.getElementById('user').value;
     const password = document.getElementById('password').value;
     let validationFlag = true;
@@ -24,6 +25,7 @@ class LogIn extends React.Component {
       try {
         validateUser(user, password);
       } catch (e) {
+        console.log(e);
         this.showErrorMessage('api-validation', 'block');
       }
     }
