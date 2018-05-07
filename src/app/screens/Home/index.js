@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import dataBooks from '../../../data/books.json';
+import { getBooks } from '../../../service/service';
 
 import Home from './layout';
 import './styles.css';
@@ -11,15 +11,15 @@ const name = 'Nombre';
 class HomeContainer extends Component {
   state = { books: [], filterType: select, filter: '' };
 
-  componentWillMount() {
-    this.setState({ books: dataBooks });
+  async componentWillMount() {
+    this.setState({ books: await getBooks() });
   }
 
-  handleFilterChange = filter => {
+  handleFilterChange = async filter => {
     this.setState({ filter: filter.target.value }, this.updateBooks);
   };
 
-  handleFilterTypeChange = filterType => {
+  handleFilterTypeChange = async filterType => {
     this.setState({ filterType: filterType.target.value }, this.updateBooks);
   };
 
@@ -28,8 +28,8 @@ class HomeContainer extends Component {
     return attributeFilter.toLowerCase().includes(this.state.filter);
   }
 
-  updateBooks() {
-    const filteredBooks = dataBooks.filter(book => this.filterBook(book));
+  async updateBooks() {
+    const filteredBooks = (await getBooks()).filter(book => this.filterBook(book));
     this.setState({ books: filteredBooks });
   }
 

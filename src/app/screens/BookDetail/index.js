@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import dataBooks from '../../../data/books.json';
+import { getBook } from '../../../service/service';
 
 import BookDetailLayout from './layout';
 
@@ -10,19 +10,19 @@ import './styles.css';
 class BookDetail extends React.Component {
   state = { book: '' };
 
-  componentWillMount() {
+  async componentWillMount() {
     this.setState({ book: this.findBook(this.props.match.params.id) });
   }
 
-  componentWillReceiveProps(nextProps) {
+  async componentWillReceiveProps(nextProps) {
     if (nextProps.match.params.id !== this.props.match.params.id) {
       this.setState({ book: this.findBook(nextProps.match.params.id) });
     }
   }
 
-  findBook = id => {
+  findBook = async id => {
     const numId = parseInt(id, 10);
-    const validationBook = dataBooks.find(book => book.id === numId);
+    const validationBook = await getBook(numId);
     if (!validationBook) {
       window.location.href = '/dashboard';
     }

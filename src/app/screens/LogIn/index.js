@@ -1,6 +1,6 @@
 import React from 'react';
 
-import validateUser from '../../../service/account';
+import { validateUser } from '../../../service/service';
 
 import LogInLayout from './layout';
 import './styles.css';

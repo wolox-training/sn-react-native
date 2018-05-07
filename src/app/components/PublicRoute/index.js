@@ -9,7 +9,11 @@ function PublicRoute({ component: Component, path }) {
     <Route
       path={path}
       render={props =>
-        !sessionStorage.getItem('user') ? <Component {...props} /> : <Redirect to={ROUTES.HOME()} />
+        !sessionStorage.getItem('authorizationToken') ? (
+          <Component {...props} />
+        ) : (
+          <Redirect to={ROUTES.HOME()} />
+        )
       }
     />
   );
