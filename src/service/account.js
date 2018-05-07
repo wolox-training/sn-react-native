@@ -8,7 +8,11 @@ async function validateUser(user, password) {
       email: user,
       password
     })
-    .then((window.location.href = ROUTES.HOME())(sessionStorage.setItem('user', user)));
+    .then(res => {
+      console.log(res);
+      window.location.href = ROUTES.HOME();
+      sessionStorage.setItem('user', user);
+    });
 }
 
 export default validateUser;
