@@ -9,19 +9,15 @@ function PublicRoute({ component: Component, path }) {
     <Route
       path={path}
       render={props =>
-        !sessionStorage.getItem('authorizationToken') ? (
-          <Component {...props} />
-        ) : (
-          <Redirect to={ROUTES.HOME()} />
-        )
+        !sessionStorage.getItem('user') ? <Component {...props} /> : <Redirect to={ROUTES.HOME()} />
       }
     />
   );
 }
 
-export default PublicRoute;
-
 PublicRoute.propTypes = {
   component: PropTypes.func.isRequired,
   path: PropTypes.string.isRequired
 };
+
+export default PublicRoute;

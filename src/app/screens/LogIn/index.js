@@ -2,6 +2,7 @@ import React from 'react';
 
 import { validateUser } from '../../../service/service';
 
+import { userId, passwordId, passwordValidationId, userValidationId, apiValidationId } from './constants';
 import LogInLayout from './layout';
 import './styles.css';
 
@@ -10,15 +11,15 @@ class LogIn extends React.Component {
     this.showErrorMessage('password-validation', 'none');
     this.showErrorMessage('user-validation', 'none');
     this.showErrorMessage('api-validation', 'none');
-    const user = document.getElementById('user').value;
-    const password = document.getElementById('password').value;
+    const user = document.getElementById(userId).value;
+    const password = document.getElementById(passwordId).value;
     let validationFlag = true;
     if (!this.validatePassword(password)) {
-      this.showErrorMessage('password-validation', 'block');
+      this.showErrorMessage(passwordValidationId, 'block');
       validationFlag = false;
     }
     if (!this.validateEmail(user)) {
-      this.showErrorMessage('user-validation', 'block');
+      this.showErrorMessage(userValidationId, 'block');
       validationFlag = false;
     }
     if (validationFlag) {
@@ -26,7 +27,7 @@ class LogIn extends React.Component {
         validateUser(user, password);
       } catch (e) {
         console.log(e);
-        this.showErrorMessage('api-validation', 'block');
+        this.showErrorMessage(apiValidationId, 'block');
       }
     }
   };

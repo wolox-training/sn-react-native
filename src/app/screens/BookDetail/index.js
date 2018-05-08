@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { ROUTES } from '../../config/routes';
-import { getBook } from '../../../service/service';
+import dataBooks from '../../../data/books.json';
 
 import BookDetailLayout from './layout';
 
@@ -11,21 +10,21 @@ import './styles.css';
 class BookDetail extends React.Component {
   state = { book: '' };
 
-  async componentWillMount() {
-    this.setState({ book: await this.findBook(this.props.match.params.id) });
+  componentWillMount() {
+    this.setState({ book: this.findBook(this.props.match.params.id) });
   }
 
-  async componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps) {
     if (nextProps.match.params.id !== this.props.match.params.id) {
-      this.setState({ book: await this.findBook(nextProps.match.params.id) });
+      this.setState({ book: this.findBook(nextProps.match.params.id) });
     }
   }
 
-  findBook = async id => {
+  findBook = id => {
     const numId = parseInt(id, 10);
-    const validationBook = await getBook(numId);
+    const validationBook = dataBooks.find(book => book.id === numId);
     if (!validationBook) {
-      window.location.href = ROUTES.HOME();
+      window.location.href = '/dashboard';
     }
     return validationBook;
   };
@@ -35,10 +34,10 @@ class BookDetail extends React.Component {
   }
 }
 
-export default BookDetail;
-
 BookDetail.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({ id: PropTypes.string.isRequired })
   }).isRequired
 };
+
+export default BookDetail;
