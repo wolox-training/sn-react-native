@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { getRandomValues } from '../../../../utils/arrayUtils';
 import { getBooks } from '../../../../../service/service';
 
 import SuggestionsLayout from './layout';
@@ -7,12 +8,12 @@ import SuggestionsLayout from './layout';
 class Suggestions extends React.Component {
   state = { books: [] };
 
-  async componentWillMount() {
+  async componentDidMount() {
     this.setState({ books: await this.getRandomSuggestions() });
   }
 
   getRandomSuggestions = async () => {
-    const randomList = (await getBooks()).sort(() => 0.5 - Math.random()).slice(0, 4);
+    const randomList = getRandomValues(await getBooks(), 4);
     return randomList;
   };
 

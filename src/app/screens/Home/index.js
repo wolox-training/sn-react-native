@@ -9,10 +9,15 @@ const select = 'Seleccionar';
 const name = 'Nombre';
 
 class HomeContainer extends Component {
-  state = { books: [], filterType: select, filter: '' };
+  state = { books: [], filteredBooks: [], filterType: select, filter: '' };
 
-  async componentWillMount() {
-    this.setState({ books: await getBooks() });
+  componentDidMount = () => {
+    this.setInitialBooks();
+  };
+
+  async setInitialBooks() {
+    const books = await getBooks();
+    this.setState(() => ({ books, filteredBooks: books }));
   }
 
   handleFilterChange = async filter => {
@@ -29,8 +34,8 @@ class HomeContainer extends Component {
   }
 
   async updateBooks() {
-    const filteredBooks = (await getBooks()).filter(book => this.filterBook(book));
-    this.setState({ books: filteredBooks });
+    const filteredBooks = this.state.books.filter(book => this.filterBook(book));
+    this.setState({ filteredBooks });
   }
 
   render() {
@@ -38,7 +43,7 @@ class HomeContainer extends Component {
       <Home
         handleFilterTypeChange={this.handleFilterTypeChange}
         handleFilterChange={this.handleFilterChange}
-        books={this.state.books}
+        books={this.state.filteredBooks}
       />
     );
   }
