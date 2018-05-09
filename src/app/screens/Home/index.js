@@ -11,13 +11,8 @@ const name = 'Nombre';
 class HomeContainer extends Component {
   state = { books: [], filteredBooks: [], filterType: select, filter: '' };
 
-  componentDidMount = () => {
-    this.setInitialBooks();
-  };
-
-  async setInitialBooks() {
-    const books = await getBooks();
-    this.setState(() => ({ books, filteredBooks: books }));
+  componentDidMount() {
+    getBooks().then(books => this.setState(() => ({ books, filteredBooks: books })));
   }
 
   handleFilterChange = async filter => {

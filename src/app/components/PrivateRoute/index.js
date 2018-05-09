@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';
 
+import { getAuthorizationToken } from '../../utils/sessionStorage';
 import { ROUTES } from '../../config/routes';
 
 function PrivateRoute({ component: Component, path }) {
@@ -9,11 +10,7 @@ function PrivateRoute({ component: Component, path }) {
     <Route
       path={path}
       render={props =>
-        sessionStorage.getItem('authorizationToken') ? (
-          <Component {...props} />
-        ) : (
-          <Redirect to={ROUTES.LOG_IN()} />
-        )
+        getAuthorizationToken() ? <Component {...props} /> : <Redirect to={ROUTES.LOG_IN()} />
       }
     />
   );
