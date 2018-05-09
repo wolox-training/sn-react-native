@@ -9,7 +9,9 @@ function PublicRoute({ component: Component, path }) {
   return (
     <Route
       path={path}
-      render={props => (!getAuthorizationToken ? <Component {...props} /> : <Redirect to={ROUTES.HOME()} />)}
+      render={props =>
+        !getAuthorizationToken() ? <Component {...props} /> : <Redirect to={ROUTES.HOME()} />
+      }
     />
   );
 }
