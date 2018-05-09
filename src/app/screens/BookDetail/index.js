@@ -1,32 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import dataBooks from '../../../data/books.json';
+import { ROUTES } from '../../config/routes';
+import { getBook } from '../../../service/service';
 
 import BookDetailLayout from './layout';
 
 import './styles.css';
 
-export class BookDetail extends React.Component {
-  state = { book: '' };
-
-  componentWillMount() {
-    this.setState({ book: this.findBook(this.props.match.params.id) });
+class BookDetail extends React.Component {
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.match.params.id !== prevState.bookId) {
+      return { ...prevState, bookId: nextProps.match.params.id };
+    }
+    return prevState;
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.match.params.id !== this.props.match.params.id) {
-      this.setState({ book: this.findBook(nextProps.match.params.id) });
+  state = { book: '', bookId: this.props.match.params.id };
+
+  componentDidMount() {
+    this.findBook(this.state.bookId);
+  }
+
+  componentDidUpdate(_, prevState) {
+    if (this.state.bookId !== prevState.bookId) {
+      this.findBook(this.state.bookId);
     }
   }
 
-  findBook = id => {
-    const numId = parseInt(id, 10);
-    const validationBook = dataBooks.find(book => book.id === numId);
+  findBook = async bookId => {
+    const numId = parseInt(bookId, 10);
+    const validationBook = await getBook(numId);
     if (!validationBook) {
-      window.location.href = '/dashboard';
+      window.location.href = ROUTES.HOME();
     }
-    return validationBook;
+    this.setState({ book: validationBook });
   };
 
   render() {
@@ -39,3 +47,5 @@ BookDetail.propTypes = {
     params: PropTypes.shape({ id: PropTypes.string.isRequired })
   }).isRequired
 };
+
+export default BookDetail;

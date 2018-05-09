@@ -1,17 +1,25 @@
 import React from 'react';
 
-import dataBooks from '../../../../../data/books.json';
+import { getRandomValues } from '../../../../utils/arrayUtils';
+import { getBooks } from '../../../../../service/service';
 
 import SuggestionsLayout from './layout';
 
 class Suggestions extends React.Component {
   state = { books: [] };
 
-  componentWillMount = () => {
-    this.setState({ books: this.getRandomSuggestions() });
-  };
+  componentDidMount() {
+    this.getSortedBooks();
+  }
 
-  getRandomSuggestions = () => dataBooks.sort(() => 0.5 - Math.random()).slice(0, 4);
+  async getSortedBooks() {
+    this.setState({ books: await this.getRandomSuggestions() });
+  }
+
+  getRandomSuggestions = async () => {
+    const randomList = getRandomValues(await getBooks(), 4);
+    return randomList;
+  };
 
   render() {
     return <SuggestionsLayout books={this.state.books} />;

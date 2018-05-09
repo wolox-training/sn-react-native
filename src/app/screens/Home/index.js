@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import dataBooks from '../../../data/books.json';
+import { getBooks } from '../../../service/service';
 
 import Home from './layout';
 import './styles.css';
@@ -9,17 +9,17 @@ const select = 'Seleccionar';
 const name = 'Nombre';
 
 class HomeContainer extends Component {
-  state = { books: [], filterType: select, filter: '' };
+  state = { books: [], filteredBooks: [], filterType: select, filter: '' };
 
-  componentWillMount() {
-    this.setState({ books: dataBooks });
+  componentDidMount() {
+    getBooks().then(books => this.setState(() => ({ books, filteredBooks: books })));
   }
 
-  handleFilterChange = filter => {
+  handleFilterChange = async filter => {
     this.setState({ filter: filter.target.value }, this.updateBooks);
   };
 
-  handleFilterTypeChange = filterType => {
+  handleFilterTypeChange = async filterType => {
     this.setState({ filterType: filterType.target.value }, this.updateBooks);
   };
 
@@ -28,9 +28,9 @@ class HomeContainer extends Component {
     return attributeFilter.toLowerCase().includes(this.state.filter);
   }
 
-  updateBooks() {
-    const filteredBooks = this.state.filter ? dataBooks.filter(book => this.filterBook(book)) : dataBooks;
-    this.setState({ books: filteredBooks });
+  async updateBooks() {
+    const filteredBooks = this.state.books.filter(book => this.filterBook(book));
+    this.setState({ filteredBooks });
   }
 
   render() {
@@ -38,7 +38,7 @@ class HomeContainer extends Component {
       <Home
         handleFilterTypeChange={this.handleFilterTypeChange}
         handleFilterChange={this.handleFilterChange}
-        books={this.state.books}
+        books={this.state.filteredBooks}
       />
     );
   }
