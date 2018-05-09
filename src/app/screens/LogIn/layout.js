@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import wbooks from '../../../assets/ASSETS/wbooks_logo.svg';
 
-import { logIn, userNotValid, passwordNotvalid, apiNotValid, email ,password } from './strings';
+import { logIn, userNotValid, passwordNotvalid, apiNotValid, email, password } from './strings';
 
 function LogInLayout({ validateLogIn }) {
   return (

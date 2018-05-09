@@ -8,7 +8,11 @@ import SuggestionsLayout from './layout';
 class Suggestions extends React.Component {
   state = { books: [] };
 
-  async componentDidMount() {
+  componentDidMount() {
+    this.getSortedBooks();
+  }
+
+  async getSortedBooks() {
     this.setState({ books: await this.getRandomSuggestions() });
   }
 
