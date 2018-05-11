@@ -24,7 +24,7 @@ export async function getBooks() {
       Authorization: getAuthorizationToken()
     }
   });
-  return books.data;
+  return books;
 }
 
 export async function getBook(id) {

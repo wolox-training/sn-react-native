@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import { getBooks } from '../../../service/service';
+import { actionCreators } from '../../redux/books/actions';
 
 import Home from './layout';
 import './styles.css';
@@ -9,10 +10,11 @@ const select = 'Seleccionar';
 const name = 'Nombre';
 
 class HomeContainer extends Component {
-  state = { books: [], filteredBooks: [], filterType: select, filter: '' };
+  state = { filteredBooks: [], filterType: select, filter: '' };
 
-  componentDidMount() {
-    getBooks().then(books => this.setState(() => ({ books, filteredBooks: books })));
+  async componentDidMount() {
+    await this.props.loadBooks();
+    this.updateBooks();
   }
 
   handleFilterChange = async filter => {
@@ -28,9 +30,8 @@ class HomeContainer extends Component {
     return attributeFilter.toLowerCase().includes(this.state.filter);
   }
 
-  async updateBooks() {
-    const filteredBooks = this.state.books.filter(book => this.filterBook(book));
-    this.setState({ filteredBooks });
+  updateBooks() {
+    this.setState({ filteredBooks: this.props.books.filter(book => this.filterBook(book)) });
   }
 
   render() {
@@ -44,4 +45,12 @@ class HomeContainer extends Component {
   }
 }
 
-export default HomeContainer;
+const mapDispatchToProps = dispatch => ({
+  loadBooks: () => dispatch(actionCreators.loadBooks())
+});
+
+const mapStateToProps = store => ({
+  books: store.book.books
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);
