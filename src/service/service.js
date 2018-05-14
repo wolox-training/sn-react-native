@@ -1,22 +1,22 @@
 import axios from 'axios';
 
-import { ROUTES } from '../app/config/routes';
-import { getAuthorizationToken, setAuthorizationToken } from '../app/utils/sessionStorage';
+import { getAuthorizationToken } from '../app/utils/sessionStorage';
+import { actionCreators } from '../app/redux/logIn/actions';
 
 const urlApi = 'https://wbooks-api-stage.herokuapp.com/api/v1';
 
-export async function validateUser(user, password) {
-  await axios
-    .post(`${urlApi}/users/sessions`, {
-      email: user,
-      password
-    })
-    .then(res => {
-      window.location.href = ROUTES.HOME();
-      setAuthorizationToken(res.data.access_token);
-    })
-    .catch((document.getElementById('api-validation').style.display = 'block'));
-}
+export const login = async (user, password) =>
+  axios.post(`${urlApi}/users/sessions`, {
+    email: user,
+    password
+  });
+
+// .then(res => {
+//   console.log('Success');
+//   actionCreators.getUsersSuccess();
+//   setAuthorizationToken(res.data.access_token);
+// })
+// .catch(e => console.log('Fail'), actionCreators.getUsersFailure());
 
 export async function getBooks() {
   const books = await axios.get(`${urlApi}/books`, {

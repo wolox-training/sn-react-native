@@ -6,12 +6,12 @@ import Book from '../../components/Book';
 import Selector from './components/Selector';
 import Searcher from './components/Searcher';
 
-function Home({ handleFilterTypeChange, handleFilterChange, books }) {
+function Home({ handleFilterTypeChange, handleFilterChange, books, filter }) {
   return (
     <div className="home-container">
       <div className="filters">
         <Selector onFilterTypeChange={handleFilterTypeChange} />
-        <Searcher onFilterChange={handleFilterChange} />
+        <Searcher onFilterChange={handleFilterChange} filter={filter} />
       </div>
       <Book books={books} />
     </div>
@@ -32,7 +32,8 @@ Home.propTypes = {
     })
   ).isRequired,
   handleFilterTypeChange: PropTypes.func.isRequired,
-  handleFilterChange: PropTypes.func.isRequired
+  handleFilterChange: PropTypes.func.isRequired,
+  filter: PropTypes.string.isRequired
 };
 
 export default Home;

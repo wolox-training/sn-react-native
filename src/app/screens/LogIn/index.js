@@ -1,40 +1,59 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import { validateUser } from '../../../service/service';
-import { showErrorMessage, validateEmail, validatePassword } from '../../utils/validations';
+import { actionCreators } from '../../redux/logIn/actions';
+import { validateEmail, validatePassword } from '../../utils/validations';
 
-import { userId, passwordId, passwordValidationId, userValidationId, apiValidationId } from './constants';
+import { userId, passwordId } from './constants';
 import LogInLayout from './layout';
 import './styles.css';
 
 class LogIn extends React.Component {
+  state = { emailError: false, passwordError: false };
+
   validateLogIn = () => {
-    showErrorMessage('password-validation', 'none');
-    showErrorMessage('user-validation', 'none');
-    showErrorMessage('api-validation', 'none');
     const user = document.getElementById(userId).value;
     const password = document.getElementById(passwordId).value;
     let validationFlag = true;
     if (!validatePassword(password)) {
-      showErrorMessage(passwordValidationId, 'block');
+      this.setState({ passwordError: true });
       validationFlag = false;
     }
+
     if (!validateEmail(user)) {
-      showErrorMessage(userValidationId, 'block');
+      this.setState({ emailError: true });
       validationFlag = false;
     }
     if (validationFlag) {
-      try {
-        validateUser(user, password);
-      } catch (e) {
-        showErrorMessage(apiValidationId, 'block');
-      }
+      this.props.logIn(user, password);
     }
   };
 
   render() {
-    return <LogInLayout validateLogIn={this.validateLogIn} />;
+    return (
+      <LogInLayout
+        validateLogIn={this.validateLogIn}
+        apiError={this.props.apiError}
+        emailError={this.state.emailError}
+        passwordError={this.state.passwordError}
+      />
+    );
   }
 }
 
-export default LogIn;
+LogIn.propTypes = {
+  apiError: PropTypes.string.isRequired,
+  logIn: PropTypes.func.isRequired
+};
+
+const mapDispatchToProps = dispatch => ({
+  logIn: (user, password) => dispatch(actionCreators.login(user, password))
+});
+
+const mapStateToProps = store => ({
+  logged: store.login.logged,
+  apiError: store.login.loginError
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(LogIn);

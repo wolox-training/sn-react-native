@@ -16,7 +16,6 @@ class HomeContainer extends Component {
 
   componentDidMount() {
     this.props.loadBooks();
-    console.log(this.props.filter);
   }
 
   handleFilterChange = async filter => {
@@ -40,6 +39,7 @@ class HomeContainer extends Component {
         handleFilterTypeChange={this.handleFilterTypeChange}
         handleFilterChange={this.handleFilterChange}
         books={this.updateBooks()}
+        filter={this.props.filter}
       />
     );
   }
