@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { Tabs } from './config/routes';
+import Navigator from './config/routes';
 
 function App() {
-  return <Tabs />;
+  return <Navigator />;
 }
 
 export default App;

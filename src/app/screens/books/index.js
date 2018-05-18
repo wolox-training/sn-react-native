@@ -2,7 +2,7 @@ import React from 'react';
 import { Text } from 'react-native';
 
 function BookContainer() {
-  return <Text>Halloween</Text>;
+  return <Text>Wbooks</Text>;
 }
 
 export default BookContainer;

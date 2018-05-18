@@ -3,36 +3,36 @@ import { StackNavigator, TabNavigator } from 'react-navigation';
 import Books from '../screens/books';
 import Todo from '../screens/todo';
 
-export const Stack = StackNavigator({
-  Books: {
-    screen: Books,
-    navigationOptions: {
-      title: 'WBooks',
-    }
-  },
+const Tabs = TabNavigator({
   Todo: {
     screen: Todo,
     navigationOptions: {
-      title: 'Todos',
+      tabBarLabel: 'Todo',
+      title: 'Todo',
+      headerTintColor: '#000'
     }
+  },
+  Books: {
+    screen: Books,
+    navigationOptions: {
+      tabBarLabel: 'Books',
+      title: 'Books'
+    }
+  }},
+  {
+    tabBarPosition: 'bottom'
   }
-});
+);
 
-export const Tabs = TabNavigator({
-  Todo: {
-    screen: Todo,
-    navigationOptions: {
-      tabBarLabel: 'Todo'
-    }
+const Navigator = StackNavigator(
+  {
+    Home: { screen: Tabs }
   },
-  Books: {
-    screen: Books,
+  {
     navigationOptions: {
-      tabBarLabel: 'Books'
+      title: 'Wolox App'
     }
   }
-},
-{
-  lazyLoad: true,
-  tabBarPosition: 'bottom'
-})
+);
+
+export default Navigator
