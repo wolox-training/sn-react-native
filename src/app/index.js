@@ -1,9 +1,9 @@
 import React from 'react';
 
-import TodoContainer from './screens/todo';
+import { Tabs } from './config/routes';
 
 function App() {
-  return <TodoContainer />;
+  return <Tabs />;
 }
 
 export default App;
