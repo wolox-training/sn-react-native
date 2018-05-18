@@ -1,6 +1,8 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
+
+import { SELECT, UNSELECT, REMOVE } from '../../strings';
 
 import styles from './styles';
 
@@ -9,12 +11,12 @@ function TodoLayout({ todo, toggleTodo, removeTodo }) {
     <View style={styles.container}>
       <Text>{todo.name}</Text>
       <View style={styles.buttonContainer}>
-        <Button
-          title={todo.selected ? 'UnSelect' : 'Select'}
-          onPress={toggleTodo}
-          style={todo.selected ? styles.selected : styles.unselected}
-        />
-        <Button title="REMOVE" color="red" onPress={removeTodo} />
+        <TouchableOpacity onPress={toggleTodo} style={todo.selected ? styles.selected : styles.unselected}>
+          <Text style={styles.button}>{todo.selected ? UNSELECT : SELECT}</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={removeTodo} style={styles.remove}>
+          <Text style={styles.button}>{REMOVE}</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );

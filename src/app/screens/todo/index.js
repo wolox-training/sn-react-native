@@ -5,14 +5,15 @@ import PropTypes from 'prop-types';
 
 import { actionCreators } from '../../redux/todo/actions';
 
+import { ENTER_TODO, REMOVE_SELECTED_TODO } from './strings';
 import Todo from './component/todo';
 
 function TodoContainer({ addTodo, todos, removeSelectedTodo }) {
   return (
     <View>
-      <TextInput onSubmitEditing={addTodo} placeholder="Enter ToDo" />
+      <TextInput onSubmitEditing={addTodo} placeholder={ENTER_TODO} />
       <ScrollView>{todos.map(todo => <Todo key={todo.id} todo={todo} />)}</ScrollView>
-      <Button onPress={removeSelectedTodo} title="Remove selected items" />
+      <Button onPress={removeSelectedTodo} title={REMOVE_SELECTED_TODO} />
     </View>
   );
 }

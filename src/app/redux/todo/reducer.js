@@ -26,7 +26,7 @@ function reducer(state = Immutable(defaultState), action) {
     case actions.REMOVE_TODO: {
       return {
         ...state,
-        todos: state.todos.filter(todo => todo.id === action.payload)
+        todos: state.todos.filter(todo => todo.id !== action.payload)
       };
     }
     case actions.REMOVE_SELECTED_TODO: {
@@ -40,8 +40,7 @@ function reducer(state = Immutable(defaultState), action) {
         ...state,
         todos: state.todos.map(todo => {
           if (todo.id === action.payload) {
-            todo.selected = !todo.selected;
-            return todo;
+            return { ...todo, selected: !todo.selected };
           }
           return todo;
         })

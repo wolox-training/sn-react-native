@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -6,16 +6,8 @@ import { actionCreators } from '../../../../redux/todo/actions';
 
 import TodoLayout from './layout';
 
-class Todo extends Component {
-  render() {
-    return (
-      <TodoLayout
-        todo={this.props.todo}
-        toggleTodo={this.props.toggleTodo}
-        removeTodo={this.props.removeTodo}
-      />
-    );
-  }
+function Todo({ todo, toggleTodo, removeTodo }) {
+  return <TodoLayout todo={todo} toggleTodo={toggleTodo} removeTodo={removeTodo} />;
 }
 
 Todo.propTypes = {
