@@ -1,8 +1,12 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { ScrollView } from 'react-native';
+
+import dataBooks from '../../../data/Books';
+
+import Book from './components/Book';
 
 function BookContainer() {
-  return <Text>Wbooks</Text>;
+  return <ScrollView>{dataBooks.map(book => <Book key={book.id} book={book} />)}</ScrollView>;
 }
 
 export default BookContainer;
