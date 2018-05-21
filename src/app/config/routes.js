@@ -2,22 +2,20 @@ import { StackNavigator, TabNavigator } from 'react-navigation';
 
 import Books from '../screens/books';
 import Todo from '../screens/todo';
+import BookDetail from '../screens/bookDetail';
 
 const Tabs = TabNavigator(
   {
     Todo: {
       screen: Todo,
       navigationOptions: {
-        tabBarLabel: 'Todo',
-        title: 'Todo',
-        headerTintColor: '#000'
+        tabBarLabel: 'Todo'
       }
     },
     Books: {
       screen: Books,
       navigationOptions: {
-        tabBarLabel: 'Books',
-        title: 'Books'
+        tabBarLabel: 'Books'
       }
     }
   },
@@ -28,7 +26,8 @@ const Tabs = TabNavigator(
 
 const Navigator = StackNavigator(
   {
-    Home: { screen: Tabs }
+    Home: { screen: Tabs },
+    BookDetail: { screen: BookDetail }
   },
   {
     navigationOptions: {
@@ -37,4 +36,4 @@ const Navigator = StackNavigator(
   }
 );
 
-export default Navigator
+export default Navigator;
