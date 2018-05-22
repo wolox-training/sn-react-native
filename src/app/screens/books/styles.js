@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native';
 
+const BOOK_SIZE = 40;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -12,8 +14,8 @@ const styles = StyleSheet.create({
   },
   bookImage: {
     borderRadius: 50,
-    height: 40,
-    width: 40
+    height: BOOK_SIZE,
+    width: BOOK_SIZE
   },
   author: {
     textAlign: 'right'
