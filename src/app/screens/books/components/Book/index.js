@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { View, Image, Text, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 
+import { ROUTES } from '../../../../config/routes';
 import styles from '../../styles';
 import defaultImage from '../../../../../assets/default_book.jpg';
 
 class Book extends Component {
   navigation = () => {
-    this.props.navigation.navigate('BookDetail', { book: this.props.book });
+    this.props.navigation.navigate(ROUTES.BOOKDETAIL(), { book: this.props.book });
   };
 
   render() {
