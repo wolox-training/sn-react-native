@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TodoContainer from './screens/todo';
+import TodoContainer from './screens/Todo';
 
 function App() {
   return <TodoContainer />;

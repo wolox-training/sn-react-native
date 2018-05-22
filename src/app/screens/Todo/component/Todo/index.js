@@ -1,12 +1,14 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { View, Text, TouchableOpacity } from 'react-native';
 
+import { actionCreators } from '../../../../redux/todo/actions';
 import { SELECT, UNSELECT, REMOVE } from '../../strings';
 
 import styles from './styles';
 
-function TodoLayout({ todo, toggleTodo, removeTodo }) {
+function Todo({ todo, toggleTodo, removeTodo }) {
   return (
     <View style={styles.container}>
       <Text>{todo.name}</Text>
@@ -22,7 +24,7 @@ function TodoLayout({ todo, toggleTodo, removeTodo }) {
   );
 }
 
-TodoLayout.propTypes = {
+Todo.propTypes = {
   todo: PropTypes.shape({
     name: PropTypes.string.isRequired,
     selected: PropTypes.bool.isRequired,
@@ -32,4 +34,9 @@ TodoLayout.propTypes = {
   removeTodo: PropTypes.func.isRequired
 };
 
-export default TodoLayout;
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  toggleTodo: () => dispatch(actionCreators.toggleTodo(ownProps.todo.id)),
+  removeTodo: () => dispatch(actionCreators.removeTodo(ownProps.todo.id))
+});
+
+export default connect(null, mapDispatchToProps)(Todo);

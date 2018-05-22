@@ -1,9 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-const red = '#E3342F';
-const green = '#38C172';
-const purple = '#9561E2';
-const white = '#FFF';
+import { red, white, green, purple } from '../../../../constants/colors';
 
 const styles = StyleSheet.create({
   container: {

@@ -1,30 +1,30 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import { View, TextInput, ScrollView, Button } from 'react-native';
+import { TextInput, ScrollView, Button } from 'react-native';
 import PropTypes from 'prop-types';
 
 import { actionCreators } from '../../redux/todo/actions';
 
 import { ENTER_TODO, REMOVE_SELECTED_TODO } from './strings';
-import Todo from './component/todo';
+import Todo from './component/Todo';
 
 function TodoContainer({ addTodo, todos, removeSelectedTodo }) {
   return (
-    <View>
+    <Fragment>
       <TextInput onSubmitEditing={addTodo} placeholder={ENTER_TODO} />
       <ScrollView>{todos.map(todo => <Todo key={todo.id} todo={todo} />)}</ScrollView>
       <Button onPress={removeSelectedTodo} title={REMOVE_SELECTED_TODO} />
-    </View>
+    </Fragment>
   );
 }
+
+const mapStateToProps = store => ({
+  todos: store.todos.todos
+});
 
 const mapDispatchToProps = dispatch => ({
   addTodo: text => dispatch(actionCreators.addTodo(text.nativeEvent.text)),
   removeSelectedTodo: () => dispatch(actionCreators.removeSelectedTodo())
-});
-
-const mapStateToProps = store => ({
-  todos: store.todos.todos
 });
 
 TodoContainer.propTypes = {
