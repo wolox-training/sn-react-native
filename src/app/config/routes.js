@@ -8,15 +8,12 @@ const Tabs = TabNavigator({
     screen: Todo,
     navigationOptions: {
       tabBarLabel: 'Todo',
-      title: 'Todo',
-      headerTintColor: '#000'
     }
   },
   Books: {
     screen: Books,
     navigationOptions: {
-      tabBarLabel: 'Books',
-      title: 'Books'
+      tabBarLabel: 'Books'
     }
   }},
   {
